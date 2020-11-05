@@ -17,7 +17,7 @@ class Game:
         """
         return self.move(p)
 
-    def player(self, player, move):
+    def play(self, player, move):
         self.moves[player] = move
         if player == 0:
             self.p1Went = True

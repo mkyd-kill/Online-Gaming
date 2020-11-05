@@ -1,10 +1,9 @@
 import pickle
 import socket
 from _thread import *
-from typing import get_args
 from game import Game
 
-server = "192.168.2.116"
+server = "192.168.2.126"
 port = 5555
 run = True
 
@@ -39,7 +38,7 @@ def threaded_client(conn, p, gameId):
                     break
                 else:
                     if data == "reset":
-                        game.reset()
+                        game.resetWent()
 
                     elif data != "get":
                         game.play(p, data)
