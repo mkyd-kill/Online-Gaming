@@ -100,7 +100,7 @@ def main():
     run = True
     clock = pygame.time.Clock()
     n = Network()
-    player = int(n.getP())
+    player = n.getP()
     print("You are player: ", player)
 
     while run:
@@ -118,17 +118,16 @@ def main():
             pygame.time.delay(500)
             try:
                 game = n.send("reset")
-
             except:
                 run = False
-                print("Could not connect to game")
+                print("Couldn't connect Game")
                 break
 
             font = pygame.font.SysFont("Times New Roman", 80)
 
             if (game.winner() == 1 and player == 1) or (game.winner == 0 and player == 0):
                 text = font.render("You win!", 1, GREEN)
-            elif game.winner == -1:
+            elif game.winner() == -1:
                 text = font.render("Tie game", 1, RED)
             else:
                 text = font.render("You lost...", 1, GREEN)
@@ -156,4 +155,27 @@ def main():
 
         redrawWindow(win, game, player)
 
-main()
+
+def menu_screen():
+    run = True
+    clock = pygame.time.Clock()
+
+    while run:
+        clock.tick(50)
+        win.fill(GREY)
+        font = pygame.font.SysFont("Helvetica", 60)
+        text = font.render("Click to Play", 1, GREEN)
+        win.blit(text, (150, 200))
+
+        for event in  pygame.event.get():
+            if event.type == pygame.QUIT:
+                pygame.quit()
+                run = False
+            
+            if event.type == pygame.MOUSEBUTTONDOWN:
+                run = False
+
+    main()
+
+while True:
+    menu_screen()

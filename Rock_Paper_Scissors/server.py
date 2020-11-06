@@ -3,7 +3,7 @@ import socket
 from _thread import *
 from game import Game
 
-server = "192.168.2.126"
+server = "192.168.2.115"
 port = 5555
 run = True
 
