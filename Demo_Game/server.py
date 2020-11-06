@@ -6,7 +6,7 @@ from player import Player
 RED = (255, 0, 0)
 BLUE = (0, 0, 255)
 
-server = "192.168.2.116"
+server = socket.gethostbyname(socket.gethostname())
 port = 5555
 
 s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)

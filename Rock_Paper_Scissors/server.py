@@ -3,7 +3,7 @@ import socket
 from _thread import *
 from game import Game
 
-server = "192.168.2.115"
+server = socket.gethostbyname(socket.gethostname())
 port = 5555
 run = True
 
@@ -49,8 +49,8 @@ def threaded_client(conn, p, gameId):
             else:
                 break
 
-        except:
-            break
+        except Exception as e:
+            print(e)
 
     
     print("Lost connection")
