@@ -1,12 +1,10 @@
-import pickle
-
-
 class Game:
     def __init__(self, id):
         self.p1Went = False
         self.p2Went = False
+        self.ready = False
         self.id = id
-        self.move = [None, None]
+        self.moves = [None, None]
         self.wins = [0,0]
         self.ties = 0
 
@@ -15,7 +13,7 @@ class Game:
         :param p: [0,1]
         :return: Move
         """
-        return self.move(p)
+        return self.moves[p]
 
     def play(self, player, move):
         self.moves[player] = move
@@ -31,12 +29,11 @@ class Game:
         return self.p1Went and self.p2Went
 
     def winner(self):
-        
+
         p1 = self.moves[0].upper()[0]
         p2 = self.moves[1].upper()[0]
 
         winner = -1
-        # the winning parts
         if p1 == "R" and p2 == "S":
             winner = 0
         elif p1 == "S" and p2 == "R":

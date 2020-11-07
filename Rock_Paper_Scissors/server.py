@@ -49,8 +49,8 @@ def threaded_client(conn, p, gameId):
             else:
                 break
 
-        except Exception as e:
-            print(e)
+        except:
+            break
 
     
     print("Lost connection")
@@ -73,7 +73,7 @@ while run:
     gameId = (idCount - 1) // 2
 
     if idCount % 2 == 1:
-        games[gameId] == Game(gameId)
+        games[gameId] = Game(gameId)
         print("Creating a new game.....")
     else:
         games[gameId].ready = True
