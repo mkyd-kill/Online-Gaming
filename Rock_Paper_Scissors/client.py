@@ -1,6 +1,6 @@
 import pygame
 from network import Network
-import pickle
+
 pygame.font.init()
 
 width = 600

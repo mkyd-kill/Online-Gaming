@@ -1,6 +1,6 @@
 import pickle
 import socket
-from _thread import *
+from _thread import start_new_thread
 from game import Game
 
 server = socket.gethostbyname(socket.gethostname())
